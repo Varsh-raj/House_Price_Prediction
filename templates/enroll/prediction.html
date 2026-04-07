@@ -1,0 +1,32 @@
+{% extends 'enroll/base.html' %}
+{% load static %}
+{% block content %}
+
+
+{% if output %}
+<section class="services">
+    <div class="box-container">
+        <div class="box">
+            <h3>Predicted Price</h3>
+            <h3>Rs. {{output}}</h3>
+        </div>
+    </div>
+</section>
+{% else %}
+<section class="form-container">
+   <form action="{% url 'predict' %}" method="post">
+        {% csrf_token %}
+        <h3>Predict the Price</h3>
+        <input type="text" name="Income" class="box" placeholder="Avg. Area Income">
+        <input type="text" name="age" class="box" placeholder="Avg. Area House Age">
+        <input type="text" name="Rooms" class="box" placeholder="Avg. Area Number of Rooms">
+        <input type="text" name="Bedrooms" class="box" placeholder="Avg. Area Number of Bedrooms">
+        <input type="text" name="Population" class="box" placeholder="Area Population">
+        
+        <input type="submit" value="Predict" name="submit" class="btn">
+    </form>
+
+</section>
+{% endif %}
+
+{% endblock content %}

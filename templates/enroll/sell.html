@@ -1,0 +1,82 @@
+{% extends 'enroll/base.html' %}
+{% load static %}
+
+{% block styles %}
+<style> 
+    h2{
+        font-size: 20px;
+        margin-top: 30px;
+        text-align: left;
+    }
+    form { 
+        margin-top: 20px; 
+    } 
+    label, input, select { 
+        display: block;
+        margin-bottom: 10px; 
+    } 
+    label{
+        width: 20%;
+    }
+    select { 
+        width: 70%; 
+        padding: 10px; 
+        border: 1px solid black;
+        
+    } 
+    button { 
+        background-color: #0051ff; 
+        color: #fff; 
+        padding: 10px 20px; 
+        border: none; 
+        cursor: pointer; 
+    } 
+</style> 
+{% endblock styles %}
+
+{% block content %}
+<section class="form-container">
+    <form action="#" method="post"> 
+        {% csrf_token %}
+        <h3>House Selling Details</h3>
+        <hr>
+
+        <h2>Contact Information</h2> 
+        <input type="text" id="full-name" name="full-name" placeholder="Full Name" class = "box" required> 
+        <input type="tel" id="phone" name="phone" placeholder="Phone Number" class = "box" required> 
+            
+        <input type="email" id="email" name="email" placeholder="Email Address:" class = "box" required>
+
+        <h2>Property Information</h2> 
+        <label for="property-images">Upload Images of Property:</label> 
+        <input type="file" id="property-images" name="property-images[]" accept="image/*" multiple> 
+            
+        <label for="property-type">Type of Property:</label> 
+        <select id="property-type" name="property-type"> 
+            <option value="single-family">House</option> 
+            <option value="condo">Flat</option> 
+            <option value="condo">Room</option>
+            
+        </select> 
+
+        <input type="number" id="area-square-feet" name="area-square-feet" placeholder="Number of bedrooms" class = "box" required>
+
+        <input type="number" id="area-square-feet" name="area-square-feet" placeholder="Number of bathroom" class = "box" required>
+            
+        <input type="number" id="area-square-feet" name="area-square-feet" placeholder="Area in Square Feet" class = "box" required> 
+            
+        <input type="number" id="year-built" name="year-built" placeholder="Year Built" class = "box" required> 
+            
+        <input type="text" id="area-location" name="area-location" placeholder="Area Location" class = "box" required> 
+
+        <h2>Selling Details</h2> 
+        <input type="number" id="listing-price" name="listing-price" placeholder="Listing Price" class = "box" required> 
+            
+        <label for="furnished">Furnished:</label> 
+        <input type="radio" id="furnished-yes" name="furnished" value="yes"> Yes 
+        <input type="radio" id="furnished-no" name="furnished" value="no"> No 
+            
+        <input type="submit" class="btn"> 
+    </form> 
+</section>
+{% endblock content %}

@@ -1,0 +1,72 @@
+{% load static %}
+
+<header class="header">
+    <nav class="navbar nav-1">
+       <section class="flex">
+          <a href="{% url 'homepage' %}" class="logo"><i class="fas fa-house"></i>Propertyhub</a>
+          <ul>
+             <li><a href="{% url 'sell' %}">post property<i class="fas fa-paper-plane"></i></a></li>
+          </ul>
+       </section>
+    </nav>
+ 
+    <nav class="navbar nav-2">
+       <section class="flex">
+          <div id="menu-btn" class="fas fa-bars"></div>
+ 
+          <div class="menu">
+             <ul>
+                <li><a href="#">buy<i class="fas fa-angle-down"></i></a>
+                   <ul>
+                      <li><a href="#">House</a></li>
+                      <li><a href="#">Flat</a></li>
+                      <li><a href="#">Room</a></li>
+                      <li><a href="#">Plot</a></li>
+                   </ul>
+                </li>
+                <li><a href="{% url 'sell' %}">sell<i class="fas fa-angle-down"></i></a>
+                   <ul>
+                      <li><a href="{% url 'sell' %}">post property</a></li>
+                   </ul>
+                </li>
+                <li><a href="#">rent</a>
+                   <ul>
+                      <li><a href="#">House</a></li>
+                      <li><a href="#">Flat</a></li>
+                      <li><a href="#">Room</a></li>
+                   </ul>
+                </li>
+                <li><a href="#">help<i class="fas fa-angle-down"></i></a>
+                   <ul>
+                      <li><a href="{% url 'about' %}">about us</a></i></li>
+                      <li><a href="{% url 'contact' %}">contact us</a></i></li>
+                      <li><a href="{% url 'contact' %}#faq">FAQ</a></i></li>
+                   </ul>
+                </li>
+             </ul>
+          </div>
+ 
+          <ul>
+             <li><a href="#">saved <i class="far fa-heart"></i></a></li>
+             <li><a href="{% url 'predict' %}">Predict</i></a></li>
+             {% if user.is_authenticated %}
+             <li><a href="#">Welcome {{user}}</i></a>
+               <ul>
+                  <li><a href="{% url 'logout' %}">logout</a></li>
+               </ul>
+            </li>
+             {% else %}
+             <li><a href="#">account <i class="fas fa-angle-down"></i></a>
+               <ul>
+                  <li><a href="{% url 'login' %}">login</a></li>
+                  <li><a href="{% url 'signUp' %}">register</a></li>
+               </ul>
+            </li>
+             {% endif %}
+          </ul>
+       </section>
+    </nav>
+ 
+ </header>
+ 
+ 

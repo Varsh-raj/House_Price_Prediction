@@ -1,0 +1,26 @@
+{% extends 'enroll/base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="form-container">
+
+   <form action="{% url 'signUp' %}" method="post">
+      <h3>create an account!</h3>
+      {% csrf_token %}
+      {{frm.errors}}
+      {{frm.field_name.errors}}
+      {% for fm in form %} 
+         {{ fm }} {{ fm.errors|striptags }}<br>
+      {% endfor %}
+
+      <p>already have an account? <a href="{% url 'login' %}">login now</a></p>
+      <input type="submit" value="register now" name="submit" class="btn">
+   </form>
+
+</section>
+
+
+
+
+
+{% endblock content %}
